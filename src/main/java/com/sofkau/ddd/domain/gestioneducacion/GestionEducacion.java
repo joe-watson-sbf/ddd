@@ -27,5 +27,16 @@ public class GestionEducacion extends AggregateEvent<GestionEducacionId> {
 
     }
 
+    public void modificarEstudioEducacion(){
+
+    }
+
+    public void actualizarPeriodoEducacion(){
+
+    }
+
+    public void modificarInstitucionEducacion(){
+
+    }
 
 }

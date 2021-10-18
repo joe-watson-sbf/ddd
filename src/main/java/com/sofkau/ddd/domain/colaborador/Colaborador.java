@@ -19,4 +19,29 @@ public class Colaborador extends AggregateEvent<ColaboradorId> {
     {
         super(entityId);
     }
+
+    public void agregarPerfil(){
+
+    }
+
+    public void modificarFechaDeNacimiento(){
+
+    }
+
+    public void modificarNombreCompleto(){
+
+    }
+
+    public void modificarCedula(){
+
+    }
+
+    public void modificarGenero(){
+
+    }
+
+    public void modificarArea(){
+
+    }
+
 }

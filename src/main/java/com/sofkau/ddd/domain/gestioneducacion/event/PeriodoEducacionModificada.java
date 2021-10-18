@@ -1,4 +1,9 @@
 package com.sofkau.ddd.domain.gestioneducacion.event;
 
-public class PeriodoEducacionModificada {
+import co.com.sofka.domain.generic.DomainEvent;
+
+public class PeriodoEducacionModificada extends DomainEvent {
+    public PeriodoEducacionModificada(){
+        super("com.sofkau.ddd.gestioneducacion.periodoeducacionmodificada");
+    }
 }

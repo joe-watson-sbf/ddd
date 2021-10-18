@@ -1,4 +1,9 @@
 package com.sofkau.ddd.domain.gestioncertificacion;
 
-public class GestionCertificacionChange {
+import co.com.sofka.domain.generic.EventChange;
+
+public class GestionCertificacionChange extends EventChange {
+    public GestionCertificacionChange(GestionCertificacion gestionCertificacion){
+
+    }
 }

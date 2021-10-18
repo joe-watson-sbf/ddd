@@ -1,4 +1,6 @@
 package com.sofkau.ddd.domain.experiencia.command;
 
-public class EliminarExperienciaLaboral {
+import co.com.sofka.domain.generic.Command;
+
+public class EliminarExperienciaLaboral extends Command {
 }

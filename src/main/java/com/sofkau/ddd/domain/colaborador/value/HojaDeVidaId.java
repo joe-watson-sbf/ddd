@@ -4,17 +4,17 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class HojaDeVidaId implements ValueObject<Integer> {
-    private final Integer value;
+public class HojaDeVidaId implements ValueObject<String> {
+    private final String value;
 
-    public HojaDeVidaId(Integer value) {
+    public HojaDeVidaId(String value) {
         Objects.requireNonNull(value);
         this.value = value;
     }
 
 
     @Override
-    public Integer value() {
+    public String value() {
         return this.value;
     }
 }

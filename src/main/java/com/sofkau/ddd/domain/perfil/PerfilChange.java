@@ -1,4 +1,10 @@
 package com.sofkau.ddd.domain.perfil;
 
-public class PerfilChange {
+import co.com.sofka.domain.generic.EventChange;
+
+public class PerfilChange extends EventChange {
+
+    public PerfilChange(Perfil perfil){
+
+    }
 }
