@@ -9,6 +9,9 @@ public class Cedula implements ValueObject<String> {
 
     public Cedula(String value) {
         this.value = Objects.requireNonNull(value, "Celuda requerida!!!");
+        if(this.value.length()<6){
+            throw new IllegalArgumentException("Cedula no valida!!!");
+        }
     }
 
     @Override

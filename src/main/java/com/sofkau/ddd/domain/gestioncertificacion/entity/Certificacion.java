@@ -1,8 +1,8 @@
 package com.sofkau.ddd.domain.gestioncertificacion.entity;
 
 import co.com.sofka.domain.generic.Entity;
-import com.sofkau.ddd.domain.gestioncertificacion.event.Nombre;
-import com.sofkau.ddd.domain.gestioncertificacion.event.Periodo;
+import com.sofkau.ddd.domain.gestioncertificacion.value.Nombre;
+import com.sofkau.ddd.domain.gestioncertificacion.value.Periodo;
 import com.sofkau.ddd.domain.gestioncertificacion.value.CertificacionId;
 import com.sofkau.ddd.domain.gestioncertificacion.value.Institucion;
 

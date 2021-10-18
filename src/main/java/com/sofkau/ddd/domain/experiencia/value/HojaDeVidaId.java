@@ -10,6 +10,9 @@ public class HojaDeVidaId implements ValueObject<String> {
     public HojaDeVidaId(String value) {
         Objects.requireNonNull(value);
         this.value = value;
+        if(this.value.isBlank()){
+            throw new IllegalArgumentException("Hoja de vida id requerida!!!");
+        }
     }
 
 

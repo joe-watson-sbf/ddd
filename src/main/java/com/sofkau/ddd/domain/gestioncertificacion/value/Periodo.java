@@ -1,4 +1,4 @@
-package com.sofkau.ddd.domain.gestioncertificacion.event;
+package com.sofkau.ddd.domain.gestioncertificacion.value;
 
 import co.com.sofka.domain.generic.ValueObject;
 

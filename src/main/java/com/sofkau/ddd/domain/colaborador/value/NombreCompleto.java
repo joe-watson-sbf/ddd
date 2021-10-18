@@ -12,6 +12,14 @@ public class NombreCompleto implements ValueObject<String> {
     public NombreCompleto(String nombre, String apellido) {
         this.nombre = Objects.requireNonNull(nombre, "Nombre no puede ser nulo!!!");
         this.apellido = Objects.requireNonNull(apellido, "Apellido no puede ser nulo!!!");
+
+        if(this.nombre.isBlank()){
+            throw new IllegalArgumentException("El nombre no puede ser vacio!!!");
+        }
+
+        if(this.apellido.isBlank()){
+            throw new IllegalArgumentException("El apellido no puede ser vacio!!!");
+        }
     }
 
     @Override
