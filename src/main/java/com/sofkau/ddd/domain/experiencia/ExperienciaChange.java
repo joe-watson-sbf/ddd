@@ -10,6 +10,10 @@ public class ExperienciaChange extends EventChange {
 
     public ExperienciaChange(Experiencia experiencia){
 
+        apply((NuevaExperienciaCreada event)->{
+            experiencia.hojaDeVidaId = event.getHojaDeVidaId();
+            experiencia.experienciaLaboral = new HashSet<>();
+        });
 
 
         apply((ExperienciaLaboralCreada event) -> {

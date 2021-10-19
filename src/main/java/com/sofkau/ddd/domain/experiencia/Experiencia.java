@@ -15,7 +15,7 @@ public class Experiencia extends AggregateEvent<ExperienciaId> {
 
     public Experiencia(ExperienciaId entityId, HojaDeVidaId hojaDeVidaId) {
         super(entityId);
-
+        appendChange(new NuevaExperienciaCreada(entityId, hojaDeVidaId));
     }
 
     private Experiencia(ExperienciaId experienciaId){
@@ -60,5 +60,9 @@ public class Experiencia extends AggregateEvent<ExperienciaId> {
         appendChange(new ConocimientosAdquiridosExperienciaLaboralModificado(experenciaLaboralId,
                 conocimientosAdquiridos)).apply();
 
+    }
+
+    public HojaDeVidaId hojaDeVidaId() {
+        return hojaDeVidaId;
     }
 }
