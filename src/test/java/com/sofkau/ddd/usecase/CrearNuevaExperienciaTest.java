@@ -12,15 +12,10 @@ import com.sofkau.ddd.usecase.experiencia.CrearNuevaExperienciaUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-@ExtendWith(MockitoExtension.class)
 public class CrearNuevaExperienciaTest {
 
-    @Mock
-    private DomainEventRepository repository;
+
 
     @Test
     @DisplayName("CREAR EXPERIENCIA ::: TEST")
