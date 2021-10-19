@@ -4,21 +4,24 @@ import co.com.sofka.domain.generic.EventChange;
 import com.sofkau.ddd.domain.experiencia.entity.ExperienciaLaboral;
 import com.sofkau.ddd.domain.experiencia.event.*;
 
+import java.util.HashSet;
+
 public class ExperienciaChange extends EventChange {
+
     public ExperienciaChange(Experiencia experiencia){
 
+
+
         apply((ExperienciaLaboralCreada event) -> {
-            experiencia.experienciaLaboral = new ExperienciaLaboral(
-                    event.getExperenciaLaboralId(),
-                    event.getInstitucion(),
-                    event.getPeriodo(),
-                    event.getConocimientosAdquiridos()
-            );
+            experiencia.experienciaLaboral = new HashSet<>();
         });
 
 
 
         apply((ExperienciaLaboralEliminada event)->{
+            experiencia.experienciaLaboral
+                    .removeIf(experienciaLaboral ->
+                            event.getExperenciaLaboralId().equals(experienciaLaboral.identity()));
             experiencia.eliminarExperienciaLaboral(event.getExperenciaLaboralId());
         });
 

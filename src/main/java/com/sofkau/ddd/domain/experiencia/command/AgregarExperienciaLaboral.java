@@ -3,7 +3,7 @@ package com.sofkau.ddd.domain.experiencia.command;
 import co.com.sofka.domain.generic.Command;
 import com.sofkau.ddd.domain.experiencia.value.*;
 
-public class CrearExperienciaLaboral extends Command {
+public class AgregarExperienciaLaboral extends Command {
 
     private final ExperienciaId experienciaId;
     private final ExperenciaLaboralId experenciaLaboralId;
@@ -11,10 +11,10 @@ public class CrearExperienciaLaboral extends Command {
     private final Periodo periodo;
     private final ConocimientosAdquiridos conocimientosAdquiridos;
 
-    public CrearExperienciaLaboral(ExperienciaId experienciaId,
-                                   ExperenciaLaboralId experenciaLaboralId,
-                                   Institucion institucion, Periodo periodo,
-                                   ConocimientosAdquiridos conocimientosAdquiridos)
+    public AgregarExperienciaLaboral(ExperienciaId experienciaId,
+                                     ExperenciaLaboralId experenciaLaboralId,
+                                     Institucion institucion, Periodo periodo,
+                                     ConocimientosAdquiridos conocimientosAdquiridos)
     {
         this.institucion = institucion;
         this.experenciaLaboralId = experenciaLaboralId;
