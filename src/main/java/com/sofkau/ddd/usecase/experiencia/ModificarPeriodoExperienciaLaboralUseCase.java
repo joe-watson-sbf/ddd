@@ -11,7 +11,7 @@ public class ModificarPeriodoExperienciaLaboralUseCase extends UseCase<RequestCo
     public void executeUseCase(RequestCommand<ModificarPeriodoExperienciaLaboral> input) {
         var command = input.getCommand();
         var experiencia = Experiencia.from(command.getExperienciaId(),
-                retrieveEvents(command.getExperienciaId().value()));
+                retrieveEvents(command.getExperenciaLaboralId().value()));
 
         experiencia.modificarExperienciaLaboralPeriodo(
                 command.getExperenciaLaboralId(),

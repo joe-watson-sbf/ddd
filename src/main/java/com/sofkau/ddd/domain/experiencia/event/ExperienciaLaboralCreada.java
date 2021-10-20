@@ -12,7 +12,7 @@ public class ExperienciaLaboralCreada extends DomainEvent {
 
     public ExperienciaLaboralCreada(ExperenciaLaboralId experenciaLaboralId, Institucion institucion,
                                     Periodo periodo, ConocimientosAdquiridos conocimientosAdquiridos) {
-        super("com.sofkau.ddd.experiencialaboralcreada");
+        super("com.sofkau.ddd.experiencia.experiencialaboralcreada");
 
         this.institucion = institucion;
         this.periodo = periodo;

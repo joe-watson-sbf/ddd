@@ -12,7 +12,7 @@ public class ConocimientosAdquiridosExperienciaLaboralModificado extends DomainE
     public ConocimientosAdquiridosExperienciaLaboralModificado(ExperenciaLaboralId experenciaLaboralId,
                                                                ConocimientosAdquiridos conocimientosAdquiridos)
     {
-        super("com.sofkau.ddd.conocimientosadquiridosexperiencialaboralmodificado");
+        super("com.sofkau.ddd.experiencia.conocimientosadquiridosexperiencialaboralmodificado");
         this.experenciaLaboralId = experenciaLaboralId;
         this.conocimientosAdquiridos = conocimientosAdquiridos;
     }

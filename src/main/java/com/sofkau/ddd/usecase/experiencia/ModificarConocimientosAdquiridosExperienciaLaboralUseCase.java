@@ -9,9 +9,11 @@ import com.sofkau.ddd.domain.experiencia.command.ModificarConocimientosAdquirido
 public class ModificarConocimientosAdquiridosExperienciaLaboralUseCase extends UseCase<RequestCommand<ModificarConocimientosAdquiridosExperienciaLaboral>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<ModificarConocimientosAdquiridosExperienciaLaboral> input) {
+
         var command = input.getCommand();
+
         var experiencia = Experiencia.from(command.getExperienciaId(),
-                retrieveEvents(command.getExperienciaId().value()));
+                retrieveEvents(command.getExperenciaLaboralId().value()));
 
         experiencia.modificarExperienciaLaboralConocimientosAdquiridos(
                 command.getExperenciaLaboralId(),
@@ -19,5 +21,6 @@ public class ModificarConocimientosAdquiridosExperienciaLaboralUseCase extends U
         );
 
         emit().onResponse(new ResponseEvents(experiencia.getUncommittedChanges()));
+
     }
 }

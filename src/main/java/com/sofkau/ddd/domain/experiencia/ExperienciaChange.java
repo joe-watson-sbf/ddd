@@ -14,97 +14,66 @@ public class ExperienciaChange extends EventChange {
 
         apply((NuevaExperienciaCreada event)->{
             experiencia.hojaDeVidaId = event.getHojaDeVidaId();
-            experiencia.experienciaLaboral = new HashSet<>();
         });
 
 
         apply((ExperienciaLaboralCreada event) -> {
-            var experienciaLaboral = new ExperienciaLaboral(
+            experiencia.experienciaLaboral = new ExperienciaLaboral(
                     event.getExperenciaLaboralId(),
                     event.getInstitucion(),
                     event.getPeriodo(),
                     event.getConocimientosAdquiridos()
             );
-            experiencia.experienciaLaboral.add(experienciaLaboral);
         });
-
-
 
         apply((ExperienciaLaboralEliminada event)->{
-            experiencia.experienciaLaboral
-                    .removeIf(experienciaLaboral ->
-                            event.getExperenciaLaboralId().equals(experienciaLaboral.identity()));
+            experiencia.experienciaLaboral = null;
         });
 
-
-
         apply((EntidadExperienciaLaboralModificado event)->{
-            // Si no existe, va lanzar una exception
-            verificarSiExisteExperienciaLaboral(event.getExperenciaLaboralId(),
-                    experiencia.experienciaLaboral);
+            boolean verified = experiencia.experienciaLaboral.identity().equals(event.getExperenciaLaboralId());
 
-            // si pasa el test de arriba entonces es porque existe; actualizarlo
-            experiencia.experienciaLaboral
-                            .forEach(experienciaLaboral -> {
-                                if(experienciaLaboral.identity().equals(event.getExperenciaLaboralId())){
-                                    experienciaLaboral.modificarInstitucion(event.getInstitucion());
-                                    experienciaLaboral.modificarPeriodo(event.getPeriodo());
-                                    experienciaLaboral.modificarConocimientosAdquiridos(event.getConocimientosAdquiridos());
-                                }
-                            });
+            if(verified){
+                experiencia.experienciaLaboral.modificarConocimientosAdquiridos(event.getConocimientosAdquiridos());
+                experiencia.experienciaLaboral.modificarPeriodo(event.getPeriodo());
+                experiencia.experienciaLaboral.modificarInstitucion(event.getInstitucion());
+            }
 
-
+            if(!verified){
+                throw new IllegalArgumentException("Experiencia laboral no encontrado!!!");
+            }
         });
 
 
 
         apply((PeriodoExperienciaLaboralModificado event)->{
-            // Si no existe, va lanzar una exception
-            verificarSiExisteExperienciaLaboral(event.getExperenciaLaboralId(),
-                    experiencia.experienciaLaboral);
 
+            boolean verified = experiencia.experienciaLaboral.identity().equals(event.getExperenciaLaboralId());
+            if(verified){
+                experiencia.experienciaLaboral.modificarPeriodo(event.getPeriodo());
+            }
 
-            // si pasa el test de arriba entonces es porque existe; actualizarlo
-            experiencia.experienciaLaboral
-                    .forEach(experienciaLaboral -> {
-                        if(experienciaLaboral.identity().equals(event.getExperenciaLaboralId())){
-                            experienciaLaboral.modificarPeriodo(event.getPeriodo());
-                        }
-                    });
-
+            if(!verified){
+                throw new IllegalArgumentException("Experiencia laboral no encontrado!!!");
+            }
         });
 
 
 
         apply((ConocimientosAdquiridosExperienciaLaboralModificado event)->{
-            // Si no existe, va lanzar una exception
-            verificarSiExisteExperienciaLaboral(event.getExperenciaLaboralId(),
-                    experiencia.experienciaLaboral);
 
+            boolean verified = experiencia.experienciaLaboral.identity().equals(event.getExperenciaLaboralId());
+            if(verified){
+                experiencia.experienciaLaboral.modificarConocimientosAdquiridos(event.getConocimientosAdquiridos());
+            }
 
-            // si pasa el test de arriba entonces es porque existe; actualizarlo
-            experiencia.experienciaLaboral
-                    .forEach(experienciaLaboral -> {
-                        if(experienciaLaboral.identity().equals(event.getExperenciaLaboralId())){
-                            experienciaLaboral.modificarConocimientosAdquiridos(
-                                    experienciaLaboral.conocimientosAdquiridos()
-                            );
-                        }
-                    });
+            if(!verified){
+                throw new IllegalArgumentException("Experiencia laboral no encontrado!!!");
+            }
+
         });
 
 
     }
 
-    private void verificarSiExisteExperienciaLaboral(ExperenciaLaboralId id, Set<ExperienciaLaboral> experienciaLaboral){
-        // Verifica ¿ si existe lo que quiere actualizar
-
-        experienciaLaboral
-                .stream()
-                .filter(e -> e.identity().equals(id))
-                .findFirst()
-                .orElseThrow(()->
-                        new IllegalArgumentException("No existe experiencia laboral con el ID indicado!!!")
-                );
-    }
 }

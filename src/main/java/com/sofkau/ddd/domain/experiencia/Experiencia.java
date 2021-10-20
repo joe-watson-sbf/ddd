@@ -7,11 +7,10 @@ import com.sofkau.ddd.domain.experiencia.event.*;
 import com.sofkau.ddd.domain.experiencia.value.*;
 
 import java.util.List;
-import java.util.Set;
 
 public class Experiencia extends AggregateEvent<ExperienciaId> {
     protected HojaDeVidaId hojaDeVidaId;
-    protected Set<ExperienciaLaboral> experienciaLaboral;
+    protected ExperienciaLaboral experienciaLaboral;
 
     public Experiencia(ExperienciaId entityId, HojaDeVidaId hojaDeVidaId) {
         super(entityId);
@@ -67,4 +66,7 @@ public class Experiencia extends AggregateEvent<ExperienciaId> {
     }
 
 
+    public ExperienciaLaboral experienciaLaboral() {
+        return experienciaLaboral;
+    }
 }

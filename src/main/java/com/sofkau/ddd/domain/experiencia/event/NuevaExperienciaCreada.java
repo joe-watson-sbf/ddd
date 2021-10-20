@@ -10,7 +10,7 @@ public class NuevaExperienciaCreada extends DomainEvent {
 
 
     public NuevaExperienciaCreada(ExperienciaId experienciaId, HojaDeVidaId hojaDeVidaId) {
-        super("com.sofkau.ddd.nuevaexperienciacreada");
+        super("com.sofkau.ddd.experiencia.nuevaexperienciacreada");
         this.experienciaId = experienciaId;
         this.hojaDeVidaId = hojaDeVidaId;
     }

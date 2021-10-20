@@ -12,7 +12,7 @@ public class ModificarEntidadExperienciaLaboralUseCase extends UseCase<RequestCo
         var command = input.getCommand();
 
         var experiencia = Experiencia.from(command.getExperienciaId(),
-                retrieveEvents(command.getExperienciaId().value()));
+                retrieveEvents(command.getExperenciaLaboralId().value()));
 
         experiencia.modificarExperienciaLaboralEntidad(
                 command.getExperenciaLaboralId(),
