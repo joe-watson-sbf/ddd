@@ -10,7 +10,8 @@ public class EliminarExperienciaLaboralUseCase extends UseCase<RequestCommand<El
     @Override
     public void executeUseCase(RequestCommand<EliminarExperienciaLaboral> input) {
         var command = input.getCommand();
-        var experiencia = Experiencia.from(command.getExperienciaId(), retrieveEvents());
+        var experiencia = Experiencia.from(command.getExperienciaId(),
+                retrieveEvents(command.getExperienciaId().value()));
 
         experiencia.eliminarExperienciaLaboral(command.getExperenciaLaboralId());
 

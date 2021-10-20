@@ -10,7 +10,8 @@ public class ModificarConocimientosAdquiridosExperienciaLaboralUseCase extends U
     @Override
     public void executeUseCase(RequestCommand<ModificarConocimientosAdquiridosExperienciaLaboral> input) {
         var command = input.getCommand();
-        var experiencia = Experiencia.from(command.getExperienciaId(), retrieveEvents());
+        var experiencia = Experiencia.from(command.getExperienciaId(),
+                retrieveEvents(command.getExperienciaId().value()));
 
         experiencia.modificarExperienciaLaboralConocimientosAdquiridos(
                 command.getExperenciaLaboralId(),

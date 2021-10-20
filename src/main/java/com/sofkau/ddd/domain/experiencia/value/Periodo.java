@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public class Periodo implements ValueObject<List<Date>> {
+public class Periodo implements ValueObject<String> {
     private final Date inicio;
     private final Date fin;
 
@@ -40,7 +40,7 @@ public class Periodo implements ValueObject<List<Date>> {
     }
 
     @Override
-    public List<Date> value() {
-        return List.of(this.inicio, this.fin);
+    public String value() {
+        return this.inicio +" - " + this.fin;
     }
 }

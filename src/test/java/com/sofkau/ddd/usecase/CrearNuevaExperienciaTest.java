@@ -1,9 +1,7 @@
 package com.sofkau.ddd.usecase;
 
 import co.com.sofka.business.generic.UseCaseHandler;
-import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
-import com.sofkau.ddd.domain.experiencia.Experiencia;
 import com.sofkau.ddd.domain.experiencia.command.CrearNuevaExperiencia;
 import com.sofkau.ddd.domain.experiencia.event.NuevaExperienciaCreada;
 import com.sofkau.ddd.domain.experiencia.value.ExperienciaId;

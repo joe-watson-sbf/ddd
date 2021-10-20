@@ -11,9 +11,16 @@ public class AgregarExperienciaLaboralUseCase extends UseCase<RequestCommand<Agr
     public void executeUseCase(RequestCommand<AgregarExperienciaLaboral> input) {
 
         var command = input.getCommand();
-        var experiencia = Experiencia.from(command.getExperienciaId(), retrieveEvents());
 
+        var experiencia = Experiencia.from(command.getExperienciaId(),
+                retrieveEvents(command.getExperienciaId().value()));
 
+        experiencia.agregarExperienciaLaboral(
+                command.getExperenciaLaboralId(),
+                command.getInstitucion(),
+                command.getPeriodo(),
+                command.getConocimientosAdquiridos()
+        );
 
         emit().onResponse(new ResponseEvents(experiencia.getUncommittedChanges()));
     }

@@ -6,7 +6,7 @@ public class ExperienciaId extends Identity {
     public ExperienciaId(String id){
         super(id);
     }
-    public ExperienciaId of(String id){
+    public static ExperienciaId of(String id){
         return new ExperienciaId(id);
     }
 }
